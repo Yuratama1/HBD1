@@ -3,80 +3,44 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Happy Birthday ❤️</title>
+  <title>Special Day 💙</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  
   <link rel="stylesheet" href="style.css" />
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </head>
 <body>
 
-  <!-- improved tulip clusters (natural, elongated petals) -->
-  <div id="decor-tulips" aria-hidden="true">
-    <!-- left cluster -->
-    <svg class="tulip-cluster left" viewBox="0 0 220 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Tulip biru">
-      <defs>
-        <linearGradient id="tTulipA" x1="0" x2="0" y1="0" y2="1">
-          <stop offset="0" stop-color="#bfe7ff"/>
-          <stop offset="1" stop-color="#3f98ff"/>
-        </linearGradient>
-        <linearGradient id="tTulipB" x1="0" x2="0" y1="0" y2="1">
-          <stop offset="0" stop-color="#a6d7ff"/>
-          <stop offset="1" stop-color="#2f82ff"/>
-        </linearGradient>
-        <linearGradient id="tStem" x1="0" x2="0" y1="0" y2="1">
-          <stop offset="0" stop-color="#76bfa6"/>
-          <stop offset="1" stop-color="#2e7f6f"/>
-        </linearGradient>
-      </defs>
-
-      <!-- stems and leaves -->
-      <g transform="translate(14,28)">
-        <path d="M52 220 C48 140 46 100 60 64" stroke="url(#tStem)" stroke-width="6" fill="none" stroke-linecap="round"/>
-        <path d="M86 224 C90 150 98 116 110 74" stroke="url(#tStem)" stroke-width="6" fill="none" stroke-linecap="round"/>
-        <path d="M122 230 C118 160 122 118 140 82" stroke="url(#tStem)" stroke-width="6" fill="none" stroke-linecap="round"/>
-
-        <!-- tulip tall (center) -->
-        <g transform="translate(80,18) scale(1.02)">
-          <!-- outer petal left -->
-          <path d="M24 6 C8 36 4 68 28 88 C56 68 56 34 38 10 C34 8 30 6 24 6 Z" fill="url(#tTulipA)" stroke="#2b6fbf" stroke-width="1"/>
-          <!-- outer petal right -->
-          <path d="M64 6 C80 36 84 68 56 88 C28 68 28 34 46 10 C50 8 54 6 64 6 Z" fill="url(#tTulipA)" stroke="#2b6fbf" stroke-width="1" opacity="0.98"/>
-          <!-- inner petal -->
-          <path d="M44 10 C50 22 50 44 44 66 C40 44 40 22 44 10 Z" fill="#e9f6ff" opacity="0.9"/>
-        </g>
-
-        <!-- tulip right (slightly shorter) -->
-        <g transform="translate(130,28) scale(0.92)">
-          <path d="M24 6 C8 34 6 62 30 82 C56 64 58 36 40 12 C36 10 30 8 24 6 Z" fill="url(#tTulipB)" stroke="#2b6fbf" stroke-width="1"/>
-          <path d="M44 10 C48 22 48 42 44 62 C40 42 40 22 44 10 Z" fill="#f0fbff" opacity="0.92"/>
-        </g>
-
-        <!-- small bud -->
-        <g transform="translate(6,80) scale(0.6)">
-          <path d="M24 6 C36 -6 54 -4 62 12 C56 30 44 34 34 32 C24 30 14 18 24 6 Z" fill="#9fd3ff" stroke="#2b6fbf" stroke-width="0.8"/>
-        </g>
+  <div id="decor-plants" aria-hidden="true">
+    <svg class="plant left" viewBox="0 0 100 200" xmlns="http://www.w3.org/2000/svg">
+      <g stroke="#569b89" stroke-width="3" stroke-linecap="round">
+        <path d="M50 200 Q 50 150 40 80" fill="none"/>
+        <path d="M50 200 Q 60 160 80 120" fill="none"/>
+        <path d="M50 200 Q 30 170 15 140" fill="none"/>
       </g>
+      <path d="M40 80 C 35 60, 45 40, 40 40 C 35 40, 30 60, 40 80 Z" fill="#71b1fc"/>
+      <path d="M40 80 C 45 60, 35 40, 40 40 C 45 40, 50 60, 40 80 Z" fill="#93c9ff"/>
+      <path d="M80 120 C 75 105, 85 90, 80 90 C 75 90, 70 105, 80 120 Z" fill="#71b1fc"/>
+      <path d="M80 120 C 85 105, 75 90, 80 90 C 85 90, 90 105, 80 120 Z" fill="#93c9ff"/>
+      <path d="M15 140 C 10 125, 20 110, 15 110 C 10 110, 5 125, 15 140 Z" fill="#71b1fc"/>
+      <path d="M15 140 C 20 125, 10 110, 15 110 C 20 110, 25 125, 15 140 Z" fill="#93c9ff"/>
     </svg>
 
-    <!-- right cluster (mirror, subtle) -->
-    <svg class="tulip-cluster right" viewBox="0 0 180 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Tulip biru">
-      <defs>
-        <linearGradient id="tTulipC" x1="0" x2="0" y1="0" y2="1">
-          <stop offset="0" stop-color="#c9eaff"/>
-          <stop offset="1" stop-color="#4b9cff"/>
-        </linearGradient>
-        <linearGradient id="tStem2" x1="0" x2="0" y1="0" y2="1">
-          <stop offset="0" stop-color="#6fb3a5"/>
-          <stop offset="1" stop-color="#2c7c66"/>
-        </linearGradient>
-      </defs>
-
-      <g transform="translate(6,22) scale(-1,1)">
-        <path d="M48 200 C44 120 44 88 56 52" stroke="url(#tStem2)" stroke-width="6" fill="none" stroke-linecap="round"/>
-        <g transform="translate(10,8) scale(1)">
-          <path d="M24 6 C8 36 6 68 32 88 C60 68 60 34 42 10 C38 8 34 6 24 6 Z" fill="url(#tTulipC)" stroke="#2b6fbf" stroke-width="1"/>
-          <path d="M44 12 C50 24 50 48 44 70 C38 48 38 24 44 12 Z" fill="#f6fbff" opacity="0.95"/>
-        </g>
+    <svg class="plant right" viewBox="0 0 100 200" xmlns="http://www.w3.org/2000/svg">
+      <g stroke="#569b89" stroke-width="3" stroke-linecap="round">
+        <path d="M50 200 Q 50 150 60 80" fill="none"/>
+        <path d="M50 200 Q 40 160 20 120" fill="none"/>
+        <path d="M50 200 Q 70 170 85 140" fill="none"/>
       </g>
+      <path d="M60 80 C 65 60, 55 40, 60 40 C 65 40, 70 60, 60 80 Z" fill="#71b1fc"/>
+      <path d="M60 80 C 55 60, 65 40, 60 40 C 55 40, 50 60, 60 80 Z" fill="#93c9ff"/>
+      <path d="M20 120 C 25 105, 15 90, 20 90 C 25 90, 30 105, 20 120 Z" fill="#71b1fc"/>
+      <path d="M20 120 C 15 105, 25 90, 20 90 C 15 90, 10 105, 20 120 Z" fill="#93c9ff"/>
+      <path d="M85 140 C 90 125, 80 110, 85 110 C 90 110, 95 125, 85 140 Z" fill="#71b1fc"/>
+      <path d="M85 140 C 80 125, 90 110, 85 110 C 80 110, 75 125, 85 140 Z" fill="#93c9ff"/>
     </svg>
   </div>
 
@@ -87,126 +51,107 @@
   </audio>
 
   <main id="app">
-    <!-- LOGIN -->
     <section id="login-screen" class="screen active">
-      <h1>Hai Sayang ❤️</h1>
-      <p class="login-instr">Masukkan nama dan tanggal lahir</p>
-      <input type="text" id="nama" placeholder="Nama kamu" autocomplete="off" />
-      <input type="date" id="tanggal" />
-      <div class="btn-row">
-        <button type="button" id="btn-masuk">Masuk</button>
-      </div>
-    </section>
-
-    <!-- GAME -->
-    <section id="game-screen" class="screen">
-      <h2>Cari pasangan kartu 🎴</h2>
-      <p class="hint">Temukan pasangan emoji. Jika menemukan kartu spesial (🦷), langsung ke kue!</p>
-      <div id="game-board" role="grid" aria-label="Papan permainan"></div>
-      <div class="btn-row">
-        <button type="button" id="btn-restart-game">Mulai Ulang</button>
-        <button type="button" id="btn-back-to-login">Kembali</button>
-      </div>
-    </section>
-
-    <!-- NEW CAKE (replaced with higher-contrast, decorative SVG) -->
-    <section id="cake-screen" class="screen">
-      <h1>Selamat Ulang Tahun 🎂</h1>
-
-      <div class="cake-panel">
-        <div id="cake-container">
-          <!-- NEW cake SVG: layered ombre, gold leaf, plate, detailed butterfly topper -->
-          <svg id="cake-svg" viewBox="0 0 700 520" width="520" height="380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ilustrasi kue biru">
-            <defs>
-              <linearGradient id="ombreA" x1="0" x2="0" y1="0" y2="1">
-                <stop offset="0%" stop-color="#bfe7ff"/>
-                <stop offset="45%" stop-color="#78c3ff"/>
-                <stop offset="100%" stop-color="#3f98ff"/>
-              </linearGradient>
-              <linearGradient id="frosting" x1="0" x2="0" y1="0" y2="1">
-                <stop offset="0%" stop-color="#ffffff"/>
-                <stop offset="100%" stop-color="#e6f7ff"/>
-              </linearGradient>
-              <linearGradient id="gold" x1="0" x2="1" y1="0" y2="0">
-                <stop offset="0" stop-color="#f7e7c2"/>
-                <stop offset="1" stop-color="#d49a37"/>
-              </linearGradient>
-              <filter id="cakeDrop" x="-50%" y="-50%" width="200%" height="200%">
-                <feDropShadow dx="0" dy="20" stdDeviation="28" flood-color="#1f5fb0" flood-opacity="0.12"/>
-              </filter>
-            </defs>
-
-            <!-- plate -->
-            <ellipse cx="350" cy="460" rx="220" ry="34" fill="#f7fbff" stroke="#e2f0ff"/>
-
-            <!-- bottom tier -->
-            <g filter="url(#cakeDrop)">
-              <rect x="160" y="220" rx="36" ry="36" width="380" height="160" fill="url(#ombreA)"/>
-              <!-- gold seam -->
-              <path d="M160 300 q80 26 190 -10 t190 10" fill="none" stroke="url(#gold)" stroke-width="10" stroke-linecap="round"/>
-            </g>
-
-            <!-- middle frosting/decoration -->
-            <g>
-              <path d="M160 220 q40 -34 80 0 t80 0 t80 0 t80 0" fill="url(#frosting)"/>
-              <!-- piped dots -->
-              <g fill="#fff8e6" opacity="0.8">
-                <circle cx="200" cy="250" r="6"/>
-                <circle cx="260" cy="260" r="5"/>
-                <circle cx="320" cy="252" r="6"/>
-                <circle cx="380" cy="258" r="5"/>
-                <circle cx="450" cy="252" r="6"/>
-              </g>
-            </g>
-
-            <!-- top shallow dome (space for writing) -->
-            <g transform="translate(0, -8)">
-              <ellipse cx="350" cy="214" rx="160" ry="68" fill="#eaf7ff"/>
-              <ellipse cx="350" cy="210" rx="120" ry="44" fill="#f7fbff" opacity="0.85"/>
-              <!-- spiral highlight -->
-              <path d="M350 210 q18 -6 36 0 q-18 8 -36 0 z" fill="#ffffff" opacity="0.5"/>
-            </g>
-
-            <!-- butterfly toppers (two, decorative) -->
-            <g transform="translate(280,138) scale(0.95)">
-              <path d="M38 10 C60 -6 96 -2 118 16 C98 36 60 46 38 42 C18 38 6 22 38 10 Z" fill="#f0fbff" stroke="#1f65d9" stroke-width="2"/>
-              <path d="M48 32 q6 6 20 6" stroke="#1f65d9" stroke-width="1.6" fill="none" opacity="0.95"/>
-              <!-- gold accent -->
-              <path d="M54 22 q8 4 16 0" stroke="url(#gold)" stroke-width="2" fill="none" opacity="0.9"/>
-            </g>
-
-            <g transform="translate(400,118) scale(0.9) rotate(-12)">
-              <path d="M38 10 C58 -6 92 -2 110 18 C94 36 56 46 36 42 C18 38 8 22 36 10 Z" fill="#f7fbff" stroke="#1f65d9" stroke-width="2"/>
-              <path d="M48 34 q6 6 18 6" stroke="#1f65d9" stroke-width="1.6" fill="none" opacity="0.95"/>
-            </g>
-
-            <!-- delicate gold flakes -->
-            <g fill="url(#gold)" opacity="0.95">
-              <circle cx="300" cy="250" r="3"/>
-              <circle cx="420" cy="245" r="3"/>
-              <circle cx="360" cy="270" r="2.2"/>
-            </g>
-
-            <!-- subtle vignette ellipse under cake for contrast -->
-            <ellipse cx="350" cy="340" rx="160" ry="48" fill="rgba(0,0,0,0.04)"/>
+      <div class="login-card">
+        <div class="icon-sparkle-container">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+            <path d="M3 12a9 9 0 1 0 18 0 9 9 0 1 0-18 0"></path>
           </svg>
         </div>
-      </div>
+        
+        <h1 class="serif-title">Special Day</h1>
+        <p class="subtitle">Ada kejutan buat kamu 💙</p>
 
-      <div class="btn-row">
-        <button type="button" id="btn-blow">Tiup Lilin</button>
-        <button type="button" id="btn-back-to-game">Kembali ke Permainan</button>
+        <div class="form-group">
+          <label>Nama Panggilan</label>
+          <div class="input-wrapper">
+            <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            <input type="text" id="nama" placeholder="Siapa namamu?" autocomplete="off" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Tanggal Lahir</label>
+          <div class="input-wrapper">
+            <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+            <input type="date" id="tanggal" />
+          </div>
+        </div>
+
+        <button type="button" id="btn-masuk" class="btn-primary">Masuk ❤</button>
       </div>
     </section>
 
-    <!-- SURPRISE -->
+    <section id="game-screen" class="screen">
+      <h1 class="serif-title">Main Sebentar ✨</h1>
+      <p class="subtitle">Temukan pasangan emoji. (Cari gigi 🦷 untuk lanjut!)</p>
+      <div id="game-board" role="grid" aria-label="Papan permainan"></div>
+      <div class="btn-row" style="margin-top:20px;">
+        <button type="button" id="btn-restart-game" class="btn-outline">Ulangi</button>
+      </div>
+    </section>
+
+    <section id="cake-screen" class="screen">
+      <h1 class="serif-title" style="font-size:36px; margin-bottom: 2rem;">Make a Wish! ✨💙</h1>
+
+      <div class="cake-container">
+        <svg viewBox="0 0 300 240" xmlns="http://www.w3.org/2000/svg" style="width:100%; max-width: 320px; display:block; margin: 0 auto;">
+          <defs>
+            <linearGradient id="flame" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#ffcc00"/>
+              <stop offset="100%" stop-color="#ff6600"/>
+            </linearGradient>
+            <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="4" result="blur" />
+              <feComposite in="SourceGraphic" in2="blur" operator="over" />
+            </filter>
+          </defs>
+
+          <rect x="30" y="200" width="240" height="16" rx="8" fill="#d1e0f0" />
+
+          <rect x="55" y="140" width="190" height="60" rx="8" fill="#88c3ff" />
+          <circle cx="85" cy="180" r="5" fill="#aed6ff" opacity="0.6"/>
+          <circle cx="110" cy="155" r="4" fill="#aed6ff" opacity="0.6"/>
+          <circle cx="150" cy="185" r="3.5" fill="#aed6ff" opacity="0.6"/>
+          <circle cx="190" cy="165" r="6" fill="#aed6ff" opacity="0.6"/>
+          <circle cx="225" cy="180" r="4.5" fill="#aed6ff" opacity="0.6"/>
+
+          <rect x="85" y="90" width="130" height="50" rx="6" fill="#f4f8fc" />
+          
+          <path d="M 85 140 Q 95 155 105 140 Q 115 160 125 140 Q 135 150 145 140 Q 155 160 165 140 Q 175 155 185 140 Q 195 150 205 140 Q 210 140 215 140 L 215 90 L 85 90 Z" fill="#f4f8fc"/>
+
+          <rect x="143" y="45" width="14" height="45" fill="#e4effb" rx="2" />
+          <path d="M 143 55 L 157 65 M 143 65 L 157 75 M 143 75 L 157 85" stroke="#9bcaff" stroke-width="3" opacity="0.5"/>
+
+          <path d="M 150 20 C 145 30, 140 40, 150 45 C 160 40, 155 30, 150 20 Z" fill="url(#flame)" filter="url(#glow)"/>
+        </svg>
+      </div>
+
+      <div class="btn-row" style="margin-top: 30px;">
+        <button type="button" id="btn-blow" class="btn-float">
+          Tiup Lilin 
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left:8px;">
+            <path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"></path>
+          </svg>
+        </button>
+      </div>
+    </section>
+
     <section id="surprise-screen" class="screen">
-      <h1>Happy Birthday 🎉</h1>
+      <h1 class="serif-title">Happy Birthday 🎉</h1>
       <div id="typing-text" class="typing-text" aria-live="polite"></div>
       <div id="sig-text" class="sig-text">— Dari aku yang selalu sayang kamu ❤️</div>
       <div class="btn-row">
-        <button type="button" id="btn-play-again">Ulangi</button>
-        <button type="button" id="btn-to-login">Ke Halaman Awal</button>
+        <button type="button" id="btn-to-login" class="btn-outline">Kembali</button>
       </div>
     </section>
   </main>

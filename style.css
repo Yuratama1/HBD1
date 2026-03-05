@@ -1,112 +1,247 @@
-/* Pastel-blue theme — updated tulips & new cake styling */
-* { box-sizing: border-box; }
-html,body { height:100%; margin:0; font-family: "Segoe UI", Roboto, Arial, sans-serif; }
-body {
-  background: linear-gradient(135deg,#eef8ff 0%, #e0f5ff 45%, #f8fdff 100%);
-  color: #0f324a;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  overflow:hidden;
-  padding:22px;
-}
-
-/* tulip decor */
-#decor-tulips { position:fixed; left:8px; top:6px; z-index:8; pointer-events:none; display:flex; gap:12px; align-items:flex-start; }
-.tulip-cluster { display:block; opacity:0.98; transform-origin:center; }
-.tulip-cluster.left { transform: translate(-6px,-6px) scale(1); }
-.tulip-cluster.right { position:fixed; right:10px; top:20px; transform: scale(0.86); }
-
-/* hearts */
-#hearts-container { position:fixed; left:0; right:0; top:0; bottom:0; pointer-events:none; z-index:6; }
-.heart { position:fixed; bottom:-30px; animation:floatUp 4.6s linear forwards; user-select:none; transform-origin:center; }
-@keyframes floatUp {
-  0% { transform: translateY(0) scale(1); opacity:1; }
-  70% { opacity:0.92; }
-  100% { transform: translateY(-120vh) scale(0.8); opacity:0; }
-}
-
-/* layout screens */
-.screen { display:none; width:100%; max-width:900px; text-align:center; padding:36px 28px; border-radius:18px; background: rgba(255,255,255,0.975); box-shadow: 0 26px 56px rgba(18,60,100,0.06); }
-.screen.active { display:block; }
-
-/* login */
-.login-instr { font-weight:600; margin-bottom:6px; color:#0b5aa2; }
-
-/* inputs & buttons */
-input[type="text"], input[type="date"] {
-  width:280px;
-  padding:12px 14px;
-  margin:8px;
-  border-radius:10px;
-  border:1px solid rgba(14,90,162,0.12);
-  font-size:16px;
-  background: linear-gradient(180deg, #ffffff, #f2fbff);
-}
-.btn-row { margin-top:18px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
-button {
-  background: linear-gradient(180deg, #2e86ff, #1b6ee6);
-  color:#fff; border:none; padding:10px 18px; border-radius:999px; cursor:pointer;
-  font-weight:700; box-shadow: 0 8px 22px rgba(30,100,200,0.12);
-}
-button:hover { transform:translateY(-3px); transition:0.14s; }
-
-/* game board (flip 3D) */
-#game-board {
-  margin:20px auto 0;
-  display:grid;
-  grid-template-columns: repeat(3, 116px);
-  gap:12px;
-  width:max-content;
-}
-.memory-card {
-  width:116px; height:116px; perspective:1000px; border-radius:12px;
-  background:transparent; border:none; padding:0; cursor:pointer;
-}
-.card-inner {
-  position:relative; width:100%; height:100%; transition: transform 0.52s cubic-bezier(.2,.9,.3,1); transform-style: preserve-3d;
-}
-.card-inner.is-flipped { transform: rotateY(180deg); }
-.card-face {
-  position:absolute; width:100%; height:100%; left:0; top:0; backface-visibility: hidden;
-  border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:44px;
-  box-shadow: 0 10px 26px rgba(5,30,60,0.06);
-}
-.card-front { background: linear-gradient(180deg,#ffffff,#e6f7ff); color:#0b5aa2; font-weight:700; }
-.card-back {
-  background: linear-gradient(180deg,#7db7ff,#4aa0ff);
-  color:white; transform: rotateY(180deg);
-  font-size:40px;
-}
-
-/* cake panel (higher contrast, padding & shadow) */
-.cake-panel {
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:20px;
-  margin:12px auto 0;
-  width:90%;
-  max-width:640px;
-  border-radius:18px;
-  background: linear-gradient(180deg, rgba(255,255,255,1), rgba(235,246,255,0.95));
-  box-shadow: 0 30px 72px rgba(18,70,140,0.08);
-  border: 1px solid rgba(120,180,255,0.14);
-}
-
-/* cake svg size & drop shadow */
-#cake-svg { display:block; width:100%; height:auto; filter: drop-shadow(0 12px 28px rgba(30,90,160,0.09)); }
-
-/* typing & signature */
-.typing-text { margin:12px auto; width:86%; max-width:760px; text-align:left; font-size:18px; line-height:1.6; white-space:pre-wrap; min-height:160px; color:#0b3b66; }
-.sig-text { margin-top:18px; opacity:0; transition:opacity .45s ease-in; text-align:right; font-weight:700; color:#06293f; }
-
-/* responsive adjustments */
-@media (max-width:560px) {
-  #game-board { grid-template-columns: repeat(3, 84px); gap:8px; }
-  .memory-card { width:84px; height:84px; }
-  .card-face { font-size:34px; }
-  input[type="text"] { width:180px; }
-  .cake-panel { padding:12px; max-width:420px; }
-  #decor-tulips { display:none; } /* hide large decor on small screens */
-}
+/* Modern Minimalist Blue Theme */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  html, body {
+    height: 100%;
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(180deg, #e5f3fd 0%, #cce5ff 100%);
+    color: #1c2d42;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  
+  /* Typography */
+  .serif-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 32px;
+    color: #112233;
+    margin-bottom: 6px;
+  }
+  .subtitle {
+    font-size: 15px;
+    color: #4a5d73;
+    margin-bottom: 24px;
+  }
+  
+  /* Floating Vector Plants */
+  #decor-plants {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    pointer-events: none;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+  }
+  .plant {
+    width: 120px;
+    height: 100%;
+  }
+  .plant.left { margin-left: -10px; }
+  .plant.right { margin-right: -10px; }
+  
+  /* Hearts Container */
+  #hearts-container {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    pointer-events: none;
+    z-index: 5;
+  }
+  .heart-shape {
+    position: absolute;
+    bottom: -30px;
+    animation: floatUp linear forwards;
+    opacity: 0.8;
+  }
+  @keyframes floatUp {
+    0% { transform: translateY(0) scale(0.8); opacity: 0; }
+    10% { opacity: 0.8; }
+    90% { opacity: 0.8; }
+    100% { transform: translateY(-120vh) scale(1.2); opacity: 0; }
+  }
+  
+  /* Screens */
+  .screen {
+    display: none;
+    width: 100%;
+    max-width: 440px;
+    text-align: center;
+    position: relative;
+    z-index: 20;
+  }
+  .screen.active {
+    display: block;
+  }
+  
+  /* Login Card */
+  .login-card {
+    background: #ffffff;
+    padding: 40px 30px;
+    border-radius: 24px;
+    box-shadow: 0 20px 50px rgba(45, 100, 160, 0.08);
+    text-align: center;
+    margin: 0 20px;
+  }
+  .icon-sparkle-container {
+    width: 48px;
+    height: 48px;
+    background: #eef5ff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+  }
+  
+  /* Forms & Inputs */
+  .form-group {
+    text-align: left;
+    margin-bottom: 18px;
+  }
+  .form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #2b3d52;
+    margin-bottom: 8px;
+  }
+  .input-wrapper {
+    position: relative;
+  }
+  .input-icon {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+  }
+  input[type="text"], input[type="date"] {
+    width: 100%;
+    padding: 14px 14px 14px 42px;
+    border-radius: 12px;
+    border: 1px solid #e1ebf4;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+    color: #1c2d42;
+    outline: none;
+    background: #fdfefe;
+    transition: all 0.2s;
+  }
+  input:focus {
+    border-color: #71b1fc;
+    box-shadow: 0 0 0 3px rgba(113, 177, 252, 0.2);
+  }
+  
+  /* Buttons */
+  .btn-primary {
+    width: 100%;
+    background: #76aaff;
+    color: #ffffff;
+    border: none;
+    padding: 16px;
+    border-radius: 14px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.2s, transform 0.1s;
+  }
+  .btn-primary:hover {
+    background: #5b96f5;
+    transform: translateY(-2px);
+  }
+  
+  /* Floating White Button (Cake Screen) */
+  .btn-float {
+    background: #ffffff;
+    color: #3b7ced;
+    border: none;
+    padding: 14px 32px;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 25px rgba(50, 110, 200, 0.15);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .btn-float:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(50, 110, 200, 0.2);
+  }
+  
+  .btn-outline {
+    background: transparent;
+    color: #3b7ced;
+    border: 2px solid #71b1fc;
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  
+  /* Memory Game adjustments */
+  #game-board {
+    display: grid;
+    grid-template-columns: repeat(3, 80px);
+    gap: 12px;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  .memory-card {
+    width: 80px; height: 80px;
+    perspective: 1000px;
+    background: transparent;
+    border: none; padding: 0; cursor: pointer;
+  }
+  .card-inner {
+    position: relative; width: 100%; height: 100%;
+    transition: transform 0.5s; transform-style: preserve-3d;
+  }
+  .card-inner.is-flipped { transform: rotateY(180deg); }
+  .card-face {
+    position: absolute; width: 100%; height: 100%;
+    backface-visibility: hidden; border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 32px;
+    box-shadow: 0 8px 16px rgba(45,100,160,0.08);
+  }
+  .card-front { background: #ffffff; color: #71b1fc; font-weight: 700; }
+  .card-back { background: #88c3ff; color: white; transform: rotateY(180deg); }
+  
+  /* Surprise Text */
+  .typing-text {
+    background: #ffffff;
+    padding: 24px;
+    border-radius: 16px;
+    text-align: left;
+    font-size: 16px;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    min-height: 180px;
+    margin: 20px;
+    box-shadow: 0 10px 30px rgba(45,100,160,0.06);
+  }
+  .sig-text {
+    margin-top: -10px;
+    margin-bottom: 20px;
+    padding-right: 24px;
+    text-align: right;
+    font-weight: 600;
+    color: #4a5d73;
+    opacity: 0;
+    transition: opacity 0.5s;
+  }
