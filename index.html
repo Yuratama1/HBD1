@@ -5,27 +5,77 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Happy Birthday ❤️</title>
   <link rel="stylesheet" href="style.css" />
-  <!-- confetti -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </head>
 <body>
 
-  <!-- dekorasi tulip biru (posisi absolute, ditambahkan via HTML) -->
+  <!-- improved tulip clusters (natural, elongated petals) -->
   <div id="decor-tulips" aria-hidden="true">
-    <!-- small tulip svgs -->
-    <svg class="tulip tulip-1" viewBox="0 0 64 64" width="60" height="60" xmlns="http://www.w3.org/2000/svg">
-      <g fill="none" fill-rule="evenodd">
-        <path d="M32 4c8 0 14 7 14 14 0 0-6 2-14 2s-14-2-14-2c0-7 6-14 14-14z" fill="#7db7ff"/>
-        <path d="M20 28s4 10 12 10 12-10 12-10-6 6-12 6S20 28 20 28z" fill="#cfe9ff"/>
-        <path d="M32 22v38" stroke="#2e86ff" stroke-width="2" stroke-linecap="round"/>
+    <!-- left cluster -->
+    <svg class="tulip-cluster left" viewBox="0 0 220 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Tulip biru">
+      <defs>
+        <linearGradient id="tTulipA" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0" stop-color="#bfe7ff"/>
+          <stop offset="1" stop-color="#3f98ff"/>
+        </linearGradient>
+        <linearGradient id="tTulipB" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0" stop-color="#a6d7ff"/>
+          <stop offset="1" stop-color="#2f82ff"/>
+        </linearGradient>
+        <linearGradient id="tStem" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0" stop-color="#76bfa6"/>
+          <stop offset="1" stop-color="#2e7f6f"/>
+        </linearGradient>
+      </defs>
+
+      <!-- stems and leaves -->
+      <g transform="translate(14,28)">
+        <path d="M52 220 C48 140 46 100 60 64" stroke="url(#tStem)" stroke-width="6" fill="none" stroke-linecap="round"/>
+        <path d="M86 224 C90 150 98 116 110 74" stroke="url(#tStem)" stroke-width="6" fill="none" stroke-linecap="round"/>
+        <path d="M122 230 C118 160 122 118 140 82" stroke="url(#tStem)" stroke-width="6" fill="none" stroke-linecap="round"/>
+
+        <!-- tulip tall (center) -->
+        <g transform="translate(80,18) scale(1.02)">
+          <!-- outer petal left -->
+          <path d="M24 6 C8 36 4 68 28 88 C56 68 56 34 38 10 C34 8 30 6 24 6 Z" fill="url(#tTulipA)" stroke="#2b6fbf" stroke-width="1"/>
+          <!-- outer petal right -->
+          <path d="M64 6 C80 36 84 68 56 88 C28 68 28 34 46 10 C50 8 54 6 64 6 Z" fill="url(#tTulipA)" stroke="#2b6fbf" stroke-width="1" opacity="0.98"/>
+          <!-- inner petal -->
+          <path d="M44 10 C50 22 50 44 44 66 C40 44 40 22 44 10 Z" fill="#e9f6ff" opacity="0.9"/>
+        </g>
+
+        <!-- tulip right (slightly shorter) -->
+        <g transform="translate(130,28) scale(0.92)">
+          <path d="M24 6 C8 34 6 62 30 82 C56 64 58 36 40 12 C36 10 30 8 24 6 Z" fill="url(#tTulipB)" stroke="#2b6fbf" stroke-width="1"/>
+          <path d="M44 10 C48 22 48 42 44 62 C40 42 40 22 44 10 Z" fill="#f0fbff" opacity="0.92"/>
+        </g>
+
+        <!-- small bud -->
+        <g transform="translate(6,80) scale(0.6)">
+          <path d="M24 6 C36 -6 54 -4 62 12 C56 30 44 34 34 32 C24 30 14 18 24 6 Z" fill="#9fd3ff" stroke="#2b6fbf" stroke-width="0.8"/>
+        </g>
       </g>
     </svg>
 
-    <svg class="tulip tulip-2" viewBox="0 0 64 64" width="48" height="48" xmlns="http://www.w3.org/2000/svg">
-      <g fill="none" fill-rule="evenodd">
-        <path d="M32 6c6 0 11 5 11 11 0 0-5 2-11 2s-11-2-11-2c0-6 5-11 11-11z" fill="#9fd3ff"/>
-        <path d="M24 28s4 8 8 8 8-8 8-8-4 4-8 4-8-4-8-4z" fill="#e9f6ff"/>
-        <path d="M32 22v36" stroke="#3388ff" stroke-width="2" stroke-linecap="round"/>
+    <!-- right cluster (mirror, subtle) -->
+    <svg class="tulip-cluster right" viewBox="0 0 180 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Tulip biru">
+      <defs>
+        <linearGradient id="tTulipC" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0" stop-color="#c9eaff"/>
+          <stop offset="1" stop-color="#4b9cff"/>
+        </linearGradient>
+        <linearGradient id="tStem2" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0" stop-color="#6fb3a5"/>
+          <stop offset="1" stop-color="#2c7c66"/>
+        </linearGradient>
+      </defs>
+
+      <g transform="translate(6,22) scale(-1,1)">
+        <path d="M48 200 C44 120 44 88 56 52" stroke="url(#tStem2)" stroke-width="6" fill="none" stroke-linecap="round"/>
+        <g transform="translate(10,8) scale(1)">
+          <path d="M24 6 C8 36 6 68 32 88 C60 68 60 34 42 10 C38 8 34 6 24 6 Z" fill="url(#tTulipC)" stroke="#2b6fbf" stroke-width="1"/>
+          <path d="M44 12 C50 24 50 48 44 70 C38 48 38 24 44 12 Z" fill="#f6fbff" opacity="0.95"/>
+        </g>
       </g>
     </svg>
   </div>
@@ -33,11 +83,9 @@
   <div id="hearts-container" aria-hidden="true"></div>
 
   <audio id="bg-music" loop preload="auto">
-    <!-- ganti ke file lokal jika mau -->
     <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c8a73467.mp3?filename=romantic-11912.mp3" type="audio/mp3">
   </audio>
 
-  <!-- Aplikasi -->
   <main id="app">
     <!-- LOGIN -->
     <section id="login-screen" class="screen active">
@@ -61,32 +109,88 @@
       </div>
     </section>
 
-    <!-- CAKE -->
+    <!-- NEW CAKE (replaced with higher-contrast, decorative SVG) -->
     <section id="cake-screen" class="screen">
       <h1>Selamat Ulang Tahun 🎂</h1>
-      <div id="cake-container" aria-hidden="false">
-        <!-- SVG kue pastel biru dengan tulip -->
-        <svg id="cake-svg" viewBox="0 0 400 300" width="320" height="240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ilustrasi kue ulang tahun">
-          <!-- base -->
-          <rect x="60" y="120" rx="28" ry="28" width="280" height="110" fill="#cfe9ff"/>
-          <!-- frosting -->
-          <path d="M60 120 q40 -40 80 0 t80 0 t80 0" fill="#eaf6ff"/>
-          <!-- layer -->
-          <rect x="80" y="150" width="240" height="60" rx="18" fill="#a3d2ff"/>
-          <!-- candle -->
-          <rect x="192" y="90" width="16" height="40" rx="4" fill="#fff"/>
-          <circle cx="200" cy="82" r="8" fill="#ffd36b"/>
-          <!-- tulip decoration left -->
-          <g transform="translate(110,145) scale(0.7)">
-            <path d="M12 2 C18 -2 28 0 34 8 C30 18 18 22 12 20 C6 18 4 8 12 2 Z" fill="#7db7ff"/>
-            <rect x="18" y="20" width="4" height="28" fill="#2e86ff"/>
-          </g>
-          <!-- tulip decoration right -->
-          <g transform="translate(270,145) scale(0.7)">
-            <path d="M12 2 C18 -2 28 0 34 8 C30 18 18 22 12 20 C6 18 4 8 12 2 Z" fill="#7db7ff"/>
-            <rect x="18" y="20" width="4" height="28" fill="#2e86ff"/>
-          </g>
-        </svg>
+
+      <div class="cake-panel">
+        <div id="cake-container">
+          <!-- NEW cake SVG: layered ombre, gold leaf, plate, detailed butterfly topper -->
+          <svg id="cake-svg" viewBox="0 0 700 520" width="520" height="380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ilustrasi kue biru">
+            <defs>
+              <linearGradient id="ombreA" x1="0" x2="0" y1="0" y2="1">
+                <stop offset="0%" stop-color="#bfe7ff"/>
+                <stop offset="45%" stop-color="#78c3ff"/>
+                <stop offset="100%" stop-color="#3f98ff"/>
+              </linearGradient>
+              <linearGradient id="frosting" x1="0" x2="0" y1="0" y2="1">
+                <stop offset="0%" stop-color="#ffffff"/>
+                <stop offset="100%" stop-color="#e6f7ff"/>
+              </linearGradient>
+              <linearGradient id="gold" x1="0" x2="1" y1="0" y2="0">
+                <stop offset="0" stop-color="#f7e7c2"/>
+                <stop offset="1" stop-color="#d49a37"/>
+              </linearGradient>
+              <filter id="cakeDrop" x="-50%" y="-50%" width="200%" height="200%">
+                <feDropShadow dx="0" dy="20" stdDeviation="28" flood-color="#1f5fb0" flood-opacity="0.12"/>
+              </filter>
+            </defs>
+
+            <!-- plate -->
+            <ellipse cx="350" cy="460" rx="220" ry="34" fill="#f7fbff" stroke="#e2f0ff"/>
+
+            <!-- bottom tier -->
+            <g filter="url(#cakeDrop)">
+              <rect x="160" y="220" rx="36" ry="36" width="380" height="160" fill="url(#ombreA)"/>
+              <!-- gold seam -->
+              <path d="M160 300 q80 26 190 -10 t190 10" fill="none" stroke="url(#gold)" stroke-width="10" stroke-linecap="round"/>
+            </g>
+
+            <!-- middle frosting/decoration -->
+            <g>
+              <path d="M160 220 q40 -34 80 0 t80 0 t80 0 t80 0" fill="url(#frosting)"/>
+              <!-- piped dots -->
+              <g fill="#fff8e6" opacity="0.8">
+                <circle cx="200" cy="250" r="6"/>
+                <circle cx="260" cy="260" r="5"/>
+                <circle cx="320" cy="252" r="6"/>
+                <circle cx="380" cy="258" r="5"/>
+                <circle cx="450" cy="252" r="6"/>
+              </g>
+            </g>
+
+            <!-- top shallow dome (space for writing) -->
+            <g transform="translate(0, -8)">
+              <ellipse cx="350" cy="214" rx="160" ry="68" fill="#eaf7ff"/>
+              <ellipse cx="350" cy="210" rx="120" ry="44" fill="#f7fbff" opacity="0.85"/>
+              <!-- spiral highlight -->
+              <path d="M350 210 q18 -6 36 0 q-18 8 -36 0 z" fill="#ffffff" opacity="0.5"/>
+            </g>
+
+            <!-- butterfly toppers (two, decorative) -->
+            <g transform="translate(280,138) scale(0.95)">
+              <path d="M38 10 C60 -6 96 -2 118 16 C98 36 60 46 38 42 C18 38 6 22 38 10 Z" fill="#f0fbff" stroke="#1f65d9" stroke-width="2"/>
+              <path d="M48 32 q6 6 20 6" stroke="#1f65d9" stroke-width="1.6" fill="none" opacity="0.95"/>
+              <!-- gold accent -->
+              <path d="M54 22 q8 4 16 0" stroke="url(#gold)" stroke-width="2" fill="none" opacity="0.9"/>
+            </g>
+
+            <g transform="translate(400,118) scale(0.9) rotate(-12)">
+              <path d="M38 10 C58 -6 92 -2 110 18 C94 36 56 46 36 42 C18 38 8 22 36 10 Z" fill="#f7fbff" stroke="#1f65d9" stroke-width="2"/>
+              <path d="M48 34 q6 6 18 6" stroke="#1f65d9" stroke-width="1.6" fill="none" opacity="0.95"/>
+            </g>
+
+            <!-- delicate gold flakes -->
+            <g fill="url(#gold)" opacity="0.95">
+              <circle cx="300" cy="250" r="3"/>
+              <circle cx="420" cy="245" r="3"/>
+              <circle cx="360" cy="270" r="2.2"/>
+            </g>
+
+            <!-- subtle vignette ellipse under cake for contrast -->
+            <ellipse cx="350" cy="340" rx="160" ry="48" fill="rgba(0,0,0,0.04)"/>
+          </svg>
+        </div>
       </div>
 
       <div class="btn-row">
@@ -97,7 +201,7 @@
 
     <!-- SURPRISE -->
     <section id="surprise-screen" class="screen">
-      <h1>Untuk Kamu ❤️</h1>
+      <h1>Happy Birthday 🎉</h1>
       <div id="typing-text" class="typing-text" aria-live="polite"></div>
       <div id="sig-text" class="sig-text">— Dari aku yang selalu sayang kamu ❤️</div>
       <div class="btn-row">
