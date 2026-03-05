@@ -1,163 +1,99 @@
-/* CSS Dasar */
+/* Tema: pastel biru + aksen tulip biru */
+* { box-sizing: border-box; }
+html,body { height:100%; margin:0; font-family: "Segoe UI", Roboto, Arial, sans-serif; }
 body {
-    margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    overflow-x: hidden;
-    background-color: #fcecf1; /* Warna awal */
-    transition: background 0.8s ease;
+  background: linear-gradient(135deg,#eaf6ff 0%, #d7eeff 50%, #f4fbff 100%);
+  color: #12324a;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  padding:20px;
 }
 
-.main-container {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/* dekor tulip svg posisi */
+#decor-tulips { position:fixed; left:12px; top:12px; z-index:7; pointer-events:none; }
+.tulip { opacity:0.9; }
+.tulip-1 { transform: rotate(-8deg); }
+.tulip-2 { transform: translateY(24px) translateX(46px) rotate(6deg); }
+
+/* container layar */
+.screen { display:none; width:100%; max-width:760px; text-align:center; padding:36px 22px; border-radius:16px; background: rgba(255,255,255,0.92); box-shadow: 0 10px 30px rgba(5,30,50,0.06); }
+.screen.active { display:block; }
+
+/* teks login */
+.login-instr { font-weight:600; margin-bottom:6px; color:#0e5aa2; }
+
+/* inputs & buttons */
+input[type="text"], input[type="date"] {
+  width:260px;
+  padding:12px 14px;
+  margin:8px;
+  border-radius:10px;
+  border:1px solid rgba(14,90,162,0.12);
+  font-size:16px;
+  background: linear-gradient(180deg, #ffffff, #f0fbff);
+}
+.btn-row { margin-top:18px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+button {
+  background: linear-gradient(180deg, #2e86ff, #1b6ee6);
+  color:#fff; border:none; padding:10px 18px; border-radius:999px; cursor:pointer;
+  font-weight:700; box-shadow: 0 6px 18px rgba(30,100,200,0.12);
+}
+button:hover { transform:translateY(-3px); transition:0.14s; }
+
+/* hearts floating */
+#hearts-container { position:fixed; left:0; right:0; top:0; bottom:0; pointer-events:none; z-index:5; }
+.heart { position:fixed; bottom:-30px; animation:floatUp 4.2s linear forwards; user-select:none; transform-origin:center; }
+@keyframes floatUp {
+  0% { transform: translateY(0) scale(1); opacity:1; }
+  70% { opacity:0.95; }
+  100% { transform: translateY(-120vh) scale(0.8); opacity:0; }
 }
 
-/* === 1. PAGE LOGIN === */
-#login-page {
-    background: white;
-    padding: 40px;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(255, 77, 109, 0.1);
-    text-align: center;
-    width: 380px;
+/* Game board (flip card) */
+#game-board {
+  margin:20px auto 0;
+  display:grid;
+  grid-template-columns: repeat(3, 116px);
+  gap:12px;
+  width:max-content;
 }
 
-.login-title { color: #e6526e; font-size: 26px; margin-bottom: 5px; }
-.login-subtitle { color: #666; font-size: 14px; margin-bottom: 25px; }
-
-input {
-    width: 100%; padding: 12px; margin-bottom: 15px;
-    border: 1px solid #eee; border-radius: 8px;
-    box-sizing: border-box; outline: none; font-size: 14px;
-}
-
-.btn-submit {
-    background-color: #e6526e; color: white; border: none;
-    width: 100%; padding: 12px; border-radius: 8px;
-    font-weight: bold; font-size: 15px; cursor: pointer;
-    transition: 0.3s;
-}
-.btn-submit:hover { background-color: #f16f87; }
-.error-text { color: red; font-size: 12px; display: none; margin-top: 15px; }
-
-/* === 2. PAGE MEMORY GAME === */
-.game-container {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.glass-card {
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    padding: 30px;
-    border-radius: 20px;
-    text-align: center;
-    color: white;
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
-}
-
-.glass-card h2 { margin-top: 0; margin-bottom: 5px; }
-.glass-card p { margin-bottom: 20px; font-size: 14px; }
-
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 kolom */
-    gap: 12px;
-}
-
-/* Style Kartu Game */
 .memory-card {
-    width: 65px;
-    height: 65px;
-    position: relative;
-    cursor: pointer;
-    transform-style: preserve-3d;
-    transition: transform 0.5s;
+  width:116px; height:116px; perspective:1000px; border-radius:12px;
+  background:transparent; border:none; padding:0; cursor:pointer;
+}
+.card-inner {
+  position:relative; width:100%; height:100%; transition: transform 0.5s; transform-style: preserve-3d;
+}
+.card-inner.is-flipped { transform: rotateY(180deg); }
+.card-face {
+  position:absolute; width:100%; height:100%; left:0; top:0; backface-visibility: hidden;
+  border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:44px;
+  box-shadow: 0 8px 18px rgba(5,30,60,0.06);
+}
+.card-front {
+  background: linear-gradient(180deg,#ffffff,#e6f7ff);
+}
+.card-back {
+  background: linear-gradient(180deg,#7db7ff,#4aa0ff);
+  color:white; transform: rotateY(180deg);
+  font-size:40px;
 }
 
-.memory-card:active { transform: scale(0.95); transition: transform 0.2s; }
-.memory-card.flip { transform: rotateY(180deg); }
+/* Cake */
+#cake-container { margin:18px auto; width:320px; height:240px; display:flex; align-items:center; justify-content:center; }
+#cake-svg { display:block; }
 
-.front-face, .back-face {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    border-radius: 12px;
-    backface-visibility: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 30px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+/* Typing */
+.typing-text { margin:12px auto; width:86%; max-width:640px; text-align:left; font-size:18px; line-height:1.6; white-space:pre-wrap; min-height:180px; color:#0e3b66; }
+.sig-text { margin-top:18px; opacity:0; transition:opacity .45s ease-in; text-align:right; font-weight:700; color:#0b2a4a; }
+
+/* responsive */
+@media (max-width:460px) {
+  #game-board { grid-template-columns: repeat(3, 84px); gap:8px; }
+  .memory-card { width:84px; height:84px; }
+  .card-face { font-size:34px; }
+  input[type="text"] { width:180px; }
 }
-
-.front-face { background: rgba(255, 255, 255, 0.4); } /* Sisi yang tertutup */
-.back-face {
-    background: rgba(255, 255, 255, 0.8); /* Sisi gambar/emoji */
-    transform: rotateY(180deg);
-}
-
-/* === 3. PAGE KEJUTAN (Kue & Balon) === */
-.surprise-container {
-    width: 100%; height: 100%;
-    position: relative; color: white;
-}
-
-.party-content {
-    display: flex; justify-content: center; align-items: center;
-    height: 100vh; text-align: center; position: relative;
-}
-
-.cake-section { display: flex; flex-direction: column; align-items: center; z-index: 10; }
-
-.cake-img {
-    width: 250px; margin-bottom: 20px;
-    filter: drop-shadow(0px 10px 10px rgba(0,0,0,0.5));
-    transition: transform 0.8s ease-in-out;
-    animation: float 3s ease-in-out infinite;
-}
-
-.btn-tiup {
-    background-color: #f1c40f; color: #333; border: none;
-    padding: 15px 30px; font-size: 20px; font-weight: bold;
-    border-radius: 30px; cursor: pointer; margin-top: 10px;
-    box-shadow: 0 5px 15px rgba(241, 196, 15, 0.5);
-    animation: pulse 1.5s infinite;
-}
-.btn-tiup:hover { transform: scale(1.1); }
-
-/* Teks Kejutan */
-.party-title {
-    font-size: 55px; line-height: 1; font-weight: 900;
-    margin: 10px 0; letter-spacing: 2px;
-    color: #ffdde1; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-}
-.name-display { font-size: 24px; color: #f1c40f; font-weight: bold; margin-bottom: 15px; }
-.greeting-text {
-    max-width: 500px; font-size: 16px; line-height: 1.6;
-    background: rgba(0, 0, 0, 0.3); padding: 20px;
-    border-radius: 15px; margin: 0 auto;
-}
-
-/* Hiasan Pesta */
-.balloons { font-size: 70px; position: absolute; animation: floatUp 4s ease-in-out infinite alternate; }
-.balloons-left { left: 10%; top: 20%; }
-.balloons-right { right: 10%; top: 20%; }
-.firework { font-size: 50px; position: absolute; }
-.firework-1 { top: 15%; left: 25%; animation: flicker 1.5s infinite alternate; }
-.firework-2 { top: 25%; right: 20%; animation: flicker 1s infinite alternate-reverse; }
-.firework-3 { top: 60%; left: 15%; animation: flicker 2s infinite alternate; }
-
-/* Animasi */
-@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
-@keyframes floatUp { 0% { transform: translateY(0px); } 100% { transform: translateY(-30px); } }
-@keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
-@keyframes flicker { from { opacity: 0; transform: scale(0.5); } to { opacity: 1; transform: scale(1.2); } }
