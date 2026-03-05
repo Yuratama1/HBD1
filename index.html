@@ -64,7 +64,7 @@
         <p class="subtitle">Ada kejutan buat kamu 💙</p>
 
         <div class="form-group">
-          <label>Nama Panggilan</label>
+          <label for="nama">Nama Panggilan</label>
           <div class="input-wrapper">
             <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
@@ -75,7 +75,7 @@
         </div>
 
         <div class="form-group">
-          <label>Tanggal Lahir</label>
+          <label for="tanggal">Tanggal Lahir</label>
           <div class="input-wrapper">
             <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
@@ -150,7 +150,16 @@
       <h1 class="serif-title">Happy Birthday 🎉</h1>
       <div id="typing-text" class="typing-text" aria-live="polite"></div>
       <div id="sig-text" class="sig-text">— Dari aku yang selalu sayang kamu ❤️</div>
-      <div class="btn-row">
+      
+      <div id="prank-container" class="prank-container">
+        <p class="prank-text">Kamu sayang aku juga kan? 🥺</p>
+        <div class="prank-buttons">
+          <button type="button" id="btn-sayang" class="btn-primary btn-prank">Sayang dong! 💙</button>
+          <button type="button" id="btn-nggak" class="btn-outline btn-prank">Nggak 😝</button>
+        </div>
+      </div>
+
+      <div class="btn-row" style="margin-top: 40px;">
         <button type="button" id="btn-to-login" class="btn-outline">Kembali</button>
       </div>
     </section>

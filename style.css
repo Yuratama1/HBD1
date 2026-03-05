@@ -5,15 +5,17 @@
     padding: 0;
   }
   
+  /* Perbaikan agar scroll aman di HP/Tablet */
   html, body {
-    height: 100%;
+    min-height: 100vh;
     font-family: 'Inter', sans-serif;
     background: linear-gradient(180deg, #e5f3fd 0%, #cce5ff 100%);
     color: #1c2d42;
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
   }
   
   /* Typography */
@@ -77,6 +79,7 @@
     text-align: center;
     position: relative;
     z-index: 20;
+    padding: 20px 0; /* Tambahan padding untuk spasi aman saat di-scroll */
   }
   .screen.active {
     display: block;
@@ -244,4 +247,44 @@
     color: #4a5d73;
     opacity: 0;
     transition: opacity 0.5s;
+  }
+  /* --- FITUR PRANK I LOVE YOU TOO --- */
+.prank-container {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1s ease;
+    margin-top: 20px;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(45,100,160,0.06);
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  .prank-container.show {
+    opacity: 1;
+    visibility: visible;
+  }
+  .prank-text {
+    font-weight: 600;
+    color: #2b3d52;
+    margin-bottom: 15px;
+    font-size: 15px;
+  }
+  .prank-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    align-items: center;
+    min-height: 50px;
+  }
+  .btn-prank {
+    width: auto !important;
+    margin-top: 0 !important;
+    padding: 12px 20px !important;
+    font-size: 14px !important;
+    z-index: 999; /* Pastikan dia di atas elemen lain pas kabur */
+  }
+  #btn-nggak {
+    transition: top 0.2s ease, left 0.2s ease;
   }
