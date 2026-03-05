@@ -1,0 +1,163 @@
+/* CSS Dasar */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    overflow-x: hidden;
+    background-color: #fcecf1; /* Warna awal */
+    transition: background 0.8s ease;
+}
+
+.main-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* === 1. PAGE LOGIN === */
+#login-page {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(255, 77, 109, 0.1);
+    text-align: center;
+    width: 380px;
+}
+
+.login-title { color: #e6526e; font-size: 26px; margin-bottom: 5px; }
+.login-subtitle { color: #666; font-size: 14px; margin-bottom: 25px; }
+
+input {
+    width: 100%; padding: 12px; margin-bottom: 15px;
+    border: 1px solid #eee; border-radius: 8px;
+    box-sizing: border-box; outline: none; font-size: 14px;
+}
+
+.btn-submit {
+    background-color: #e6526e; color: white; border: none;
+    width: 100%; padding: 12px; border-radius: 8px;
+    font-weight: bold; font-size: 15px; cursor: pointer;
+    transition: 0.3s;
+}
+.btn-submit:hover { background-color: #f16f87; }
+.error-text { color: red; font-size: 12px; display: none; margin-top: 15px; }
+
+/* === 2. PAGE MEMORY GAME === */
+.game-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+
+.glass-card h2 { margin-top: 0; margin-bottom: 5px; }
+.glass-card p { margin-bottom: 20px; font-size: 14px; }
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 kolom */
+    gap: 12px;
+}
+
+/* Style Kartu Game */
+.memory-card {
+    width: 65px;
+    height: 65px;
+    position: relative;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+}
+
+.memory-card:active { transform: scale(0.95); transition: transform 0.2s; }
+.memory-card.flip { transform: rotateY(180deg); }
+
+.front-face, .back-face {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border-radius: 12px;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.front-face { background: rgba(255, 255, 255, 0.4); } /* Sisi yang tertutup */
+.back-face {
+    background: rgba(255, 255, 255, 0.8); /* Sisi gambar/emoji */
+    transform: rotateY(180deg);
+}
+
+/* === 3. PAGE KEJUTAN (Kue & Balon) === */
+.surprise-container {
+    width: 100%; height: 100%;
+    position: relative; color: white;
+}
+
+.party-content {
+    display: flex; justify-content: center; align-items: center;
+    height: 100vh; text-align: center; position: relative;
+}
+
+.cake-section { display: flex; flex-direction: column; align-items: center; z-index: 10; }
+
+.cake-img {
+    width: 250px; margin-bottom: 20px;
+    filter: drop-shadow(0px 10px 10px rgba(0,0,0,0.5));
+    transition: transform 0.8s ease-in-out;
+    animation: float 3s ease-in-out infinite;
+}
+
+.btn-tiup {
+    background-color: #f1c40f; color: #333; border: none;
+    padding: 15px 30px; font-size: 20px; font-weight: bold;
+    border-radius: 30px; cursor: pointer; margin-top: 10px;
+    box-shadow: 0 5px 15px rgba(241, 196, 15, 0.5);
+    animation: pulse 1.5s infinite;
+}
+.btn-tiup:hover { transform: scale(1.1); }
+
+/* Teks Kejutan */
+.party-title {
+    font-size: 55px; line-height: 1; font-weight: 900;
+    margin: 10px 0; letter-spacing: 2px;
+    color: #ffdde1; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+.name-display { font-size: 24px; color: #f1c40f; font-weight: bold; margin-bottom: 15px; }
+.greeting-text {
+    max-width: 500px; font-size: 16px; line-height: 1.6;
+    background: rgba(0, 0, 0, 0.3); padding: 20px;
+    border-radius: 15px; margin: 0 auto;
+}
+
+/* Hiasan Pesta */
+.balloons { font-size: 70px; position: absolute; animation: floatUp 4s ease-in-out infinite alternate; }
+.balloons-left { left: 10%; top: 20%; }
+.balloons-right { right: 10%; top: 20%; }
+.firework { font-size: 50px; position: absolute; }
+.firework-1 { top: 15%; left: 25%; animation: flicker 1.5s infinite alternate; }
+.firework-2 { top: 25%; right: 20%; animation: flicker 1s infinite alternate-reverse; }
+.firework-3 { top: 60%; left: 15%; animation: flicker 2s infinite alternate; }
+
+/* Animasi */
+@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
+@keyframes floatUp { 0% { transform: translateY(0px); } 100% { transform: translateY(-30px); } }
+@keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+@keyframes flicker { from { opacity: 0; transform: scale(0.5); } to { opacity: 1; transform: scale(1.2); } }

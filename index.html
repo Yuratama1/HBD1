@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HBD Afiqoh Hesti Qurrotu'aini</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="main-container">
+        <div id="login-page" class="card-login">
+            <h1 class="login-title">Siapa ini? 🤔</h1>
+            <p class="login-subtitle">Masukkan namamu dan tanggal lahirmu untuk melihat kejutan!</p>
+            
+            <div class="input-group">
+                <input type="text" id="inputNama" placeholder="Nama Lengkap">
+            </div>
+            
+            <div class="input-group">
+                <input type="date" id="inputDate">
+                <span class="calendar-icon">📅</span>
+            </div>
+            
+            <button class="btn-submit" onclick="validasiAkses()">Mulai Petualangan ✨</button>
+            <p id="error-msg" class="error-text">Ups! Data tidak cocok. Coba lagi ya!</p>
+        </div>
+
+        <div id="game-page" class="game-container" style="display: none;">
+            <div class="glass-card">
+                <h2>Memory Game 🎮</h2>
+                <p>Cocokkan kartu-kartu ini yaa! 😊</p>
+                <div class="grid-container" id="game-board">
+                    </div>
+            </div>
+        </div>
+
+        <div id="surprise-page" class="surprise-container" style="display: none;">
+            <main class="party-content">
+                <div class="cake-section">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3132/3132084.png" alt="Kue Ulang Tahun" class="cake-img" id="kue-ultah">
+                    
+                    <button id="btn-tiup" class="btn-tiup" onclick="tiupLilin()">Tiup Lilin 🌬️</button>
+                    
+                    <div id="surprise-text" style="display: none;">
+                        <h1 class="party-title">HAPPY BIRTHDAY</h1>
+                        <p class="name-display">Afiqoh Hesti Qurrotu'aini</p>
+                        <p class="greeting-text">Selamat ulang tahun! Semoga panjang umur, sehat selalu, bahagia terus, dan semua impianmu segera terwujud. Have a wonderful day! 🎉✨</p>
+                    </div>
+                </div>
+
+                <div id="decorations" style="display: none;">
+                    <div class="balloons balloons-left">🎈🎈🎈</div>
+                    <div class="balloons balloons-right">🎈🎈🎈</div>
+                    <div class="firework firework-1">🎆</div>
+                    <div class="firework firework-2">🎇</div>
+                    <div class="firework firework-3">🎆</div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
